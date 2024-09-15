@@ -6,3 +6,59 @@
 body {
   margin: 0;
 }
+
+.speaker-button {
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 20px; /* Distance from the bottom */
+  right: 20px;  /* Distance from the right */
+  z-index: 1000; /* Ensures it stays on top */
+}
+
+.speaker-button::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  clip-path: polygon(0% 0%, 0% 100%, 100% 50%);
+}
+
+.speaker-button::after {
+  content: '';
+  position: absolute;
+  left: 35px;
+  top: 15px;
+  width: 8px;
+  height: 20px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.speaker-button.muted::before {
+  clip-path: none;
+  width: 0;
+  height: 0;
+}
+
+.speaker-button.muted::after {
+  background-color: transparent;
+}
+
+.speaker-button.muted::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 5px;
+  background-color: red;
+  transform: rotate(45deg);
+  top: 25px;
+  left: 0px;
+}
